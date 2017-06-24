@@ -1,7 +1,9 @@
+import webpack from 'webpack'
 import { resolve, join } from 'path';
 
+
 module.exports = () => ({
-  entry: './client/client.jsx',
+  entry: './client/client.js',
   output: {
     path: resolve('build'),
     filename: 'bundle.js',
@@ -35,4 +37,10 @@ module.exports = () => ({
       join(__dirname, 'node_modules'),
     ],
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ]
 });
