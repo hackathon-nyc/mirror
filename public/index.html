@@ -3,10 +3,15 @@
 <head>
   <meta charset="utf-8">
   <style src="/main.css"></style>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+  </script>
 </head>
+
 <body>
   <img id="my-screenshot" />
-<!-- 
+
   <label>Your ID:</label><br/>
   <textarea id="yourId"></textarea><br/>
   <label>Other ID:</label><br/>
@@ -20,7 +25,6 @@
   <button id="capture">Capture</button>
 
   <div id="output"></div>
-  <div id="app"></div> -->
   <script src="/bundle.js"></script>
 </body>
 </html>
