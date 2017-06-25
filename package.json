@@ -1,7 +1,7 @@
 {
   "scripts": {
     "compile": "webpack -w",
-    "start": "nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js"
+    "start": "webpack -w & nodemon -- node_modules/babel-cli/bin/babel-node.js server/server.js"
   },
   "dependencies": {
     "axios": "^0.16.2",

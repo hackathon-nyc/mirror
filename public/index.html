@@ -4,27 +4,37 @@
   <meta charset="utf-8">
   <style src="/main.css"></style>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" /></script>
   <script>
     var socket = io();
   </script>
 </head>
 
 <body>
-  <img id="my-screenshot" />
+<div style="display:inline-block">
+  <div>
+    <canvas heigth="100px" id="Personality"></canvas>
+    <canvas heigth="100px" id="Values"></canvas>
+  </div>
 
-  <label>Your ID:</label><br/>
-  <textarea id="yourId"></textarea><br/>
-  <label>Other ID:</label><br/>
-  <textarea id="otherId"></textarea>
-  <button id="connect">connect</button><br/>
+  <div>
+    <img id="my-screenshot" />
 
-  <label>Enter Message:</label><br/>
-  <textarea id="yourMessage"></textarea>
-  <button id="send">send</button>
-  <pre id="messages"></pre>
-  <button id="capture">Capture</button>
+    <label>Your ID:</label><br/>
+    <textarea id="yourId"></textarea><br/>
+    <label>Other ID:</label><br/>
+    <textarea id="otherId"></textarea>
+    <button id="connect">connect</button><br/>
 
-  <div id="output"></div>
+    <label>Enter Message:</label><br/>
+    <textarea id="yourMessage"></textarea>
+    <button id="send">send</button>
+    <pre id="messages"></pre>
+    <button id="capture">Capture</button>
+
+    <div id="output"></div>
+  </div>
+</div>
   <script src="/bundle.js"></script>
 </body>
 </html>
