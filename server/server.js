@@ -27,16 +27,9 @@ const DEFAULT_PEER_COUNT = 2;
 io.on('connection', function (socket) {
   console.log('SOCKET: ', socket.id)
 
-  socket.on('signal', function(data) {
-    var socket2 = io.sockets.connected[data.peerId];
-    if (!socket2) { return; }
-    debug('Proxying signal from peer %s to %s', socket.id, socket2.id);
-
-    socket2.emit('signal', {
-      signal: data.signal,
-      peerId: socket.id
-    });
-  });
+  io.on('JOIN CHAT', (room) => {
+    
+  })
 });
 
 let port = process.env.PORT || 3000;
