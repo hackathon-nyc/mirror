@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <style src="/main.css"></style>
+
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" /></script>
   <script>
@@ -12,10 +12,6 @@
 
 <body>
 <div style="display:inline-block">
-  <div>
-    <canvas heigth="100px" id="Personality"></canvas>
-    <canvas heigth="100px" id="Values"></canvas>
-  </div>
 
   <div>
     <img id="my-screenshot" />
@@ -35,6 +31,11 @@
     <div id="output"></div>
   </div>
 </div>
+<div id="container">
+  <canvas heigth="100px" id="Personality"></canvas>
+  <canvas heigth="100px" id="Values"></canvas>
+</div>
+    <style src="/main.css"></style>
   <script src="/bundle.js"></script>
 </body>
 </html>

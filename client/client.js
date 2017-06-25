@@ -105,7 +105,7 @@ const captureImage = function() {
         // sendDummy();
         dispData(resultArr)
       }
-      
+
     });
     function sendDummy(){
       var dat = [0.1, 0.05, 0.05, 0.02, 0.2, 0.3, 0.45];
@@ -151,7 +151,7 @@ var personalityChart = new Chart(lineCon, {
         }]
     },
 });
-    
+
 var valuesChart = new Chart(barCon, {
 // The type of chart we want to create
 type: 'radar',
@@ -170,10 +170,10 @@ data: {
 
     function dispData(arry) {
     var lineCon = document.getElementById('Personality').getContext('2d');
-    var barCon = document.getElementById('Values').getContext('2d');
-        
-    var totalAnger, totalContempt, totalDisgust, totalHappiness, totalNeutral, totalSadness, totalSurprise;
-        
+    //var barCon = document.getElementById('Values').getContext('2d');
+
+    var totalAnger, totalContempt, totalDisgust, totalHappiness, totalSadness, totalSurprise;
+
     var personalityChart = new Chart(lineCon, {
         // The type of chart we want to create
         type: 'line',
@@ -208,12 +208,6 @@ data: {
                 data: arry.map(obj => obj.faceAttributes.emotion.happiness),
             },{
                 fill: false,
-                label: "Neutral",
-                backgroundColor: 'rgb(205,133,63)',
-                borderColor: 'rgb(205,133,63)',
-                data: arry.map(obj => obj.faceAttributes.emotion.neutral),
-            },{
-                fill: false,
                 label: "Sadness",
                 backgroundColor: 'rgb(0,0,255)',
                 borderColor: 'rgb(0,0,255)',
@@ -227,9 +221,9 @@ data: {
             }]
         },
     });
-        
-        
-        
+
+
+
         totalAnger = arry.reduce((acc, val) => {
           return acc += val.faceAttributes.emotion.anger
         }, 0);
@@ -239,9 +233,6 @@ data: {
         totalDisgust = arry.reduce((acc, val) => {
           return acc += val.faceAttributes.emotion.disgust;
         }, 0);
-        totalNeutral = arry.reduce((acc, val) => {
-          return acc += val.faceAttributes.emotion.neutral
-        }, 0);
         totalSadness = arry.reduce((acc, val) => {
           return acc += val.faceAttributes.emotion.sadness
         }, 0);
@@ -249,21 +240,21 @@ data: {
           return acc += val.faceAttributes.emotion.surprise
         }, 0);
 
-    var valuesChart = new Chart(barCon, {
-    // The type of chart we want to create
-    type: 'radar',
-    // The data for our dataset
-    data: {
-        labels: ["Anger", "Contempt", "Disgust", "Happiness", "Neutral", "Sadness", "Surprise"],
-        datasets: [{
-            backgroundColor: 'rgb(255,99,71)',
-            borderColor: 'rgb(255,100,80)',
-            pointBackgroundColor: 'rgb(255,100,80)',
-            data: [totalAnger, totalContempt, totalDisgust, totalHappiness, totalNeutral, totalSadness, totalSurprise]
-        }]
-        },
-    });
-        
+    // var valuesChart = new Chart(barCon, {
+    // // The type of chart we want to create
+    // type: 'radar',
+    // // The data for our dataset
+    // data: {
+    //     labels: ["Anger", "Contempt", "Disgust", "Happiness", "Sadness", "Surprise"],
+    //     datasets: [{
+    //         backgroundColor: 'rgb(255,99,71)',
+    //         borderColor: 'rgb(255,100,80)',
+    //         pointBackgroundColor: 'rgb(255,100,80)',
+    //         data: [totalAnger, totalContempt, totalDisgust, totalHappiness,  totalSadness, totalSurprise]
+    //     }]
+    //     },
+    // });
+
     }
 };
 //https://[location].api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
@@ -273,4 +264,4 @@ setInterval(function(){
     } else if(location.hash === '#init'){
       console.log("Loading video")
     }
-  },1500);
+  },250);
